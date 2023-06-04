@@ -1,35 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import TelaInicial from "./pages/TelaInicial/TelaInicial";
+import TelaQuadras from "./pages/TelaQuadras/TelaQuadras";
+import TelaReservas from "./pages/TelaReservas/TelaReservas";
+import TelaCadastro from "./pages/TelaCadastro/TelaCadastro";
+import TelaLogin from "./pages/TelaLogin/TelaLogin";
 
-function App() {
-  const [count, setCount] = useState(0)
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+export default function App() {
+  
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+   
+        <BrowserRouter>
+          <div className="App">
+            <Routes>
+              <Route path="/" element={<TelaInicial />} />
+              <Route path="/cadastro" element={<TelaCadastro />} />
+              <Route path="/login" element={<TelaLogin />} />
+              <Route path="/quadras" element={<TelaQuadras />} />
+              <Route path="/reservas" element={<TelaReservas />} />
+            </Routes>
+          </div>
+        </BrowserRouter>
+    
   )
 }
-
-export default App
