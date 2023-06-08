@@ -1,7 +1,35 @@
-export default function TelaQuadras(){
-    return(
+import Corpo from '../../components/corpo/Corpo'
+import { StyledContainer } from "./styled"
+import logo from "../../assets/logo.png"
+
+
+
+
+export default function TelaQuadras() {
+    return (
         <>
-        <h1>quadras</h1>
+            <Corpo />
+
+            <StyledContainer>
+                <section>
+                    <div>
+                    <img className="logo" src={logo} alt='logo' />
+                    <p>campo</p>
+                    </div>
+                </section>
+                <section>
+                    <div>
+                    <img className="logo" src={logo} alt='logo' />
+                    <p>campo</p>
+                    </div>
+                </section>
+                <section>
+                    <div>
+                    <img className="logo" src={logo} alt='logo' />
+                    <p>campo</p>
+                    </div>
+                </section>
+            </StyledContainer>
         </>
     )
 }
