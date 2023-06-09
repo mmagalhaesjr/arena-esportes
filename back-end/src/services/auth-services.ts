@@ -1,41 +1,48 @@
-import bcrypt, { hash } from 'bcrypt';
-import { v4 as uuid } from "uuid";
+import * as bcrypt from 'bcrypt';
+import { v4 as uuid } from 'uuid';
 import userRepositories from '../repositories/user-repositories.js';
 
-async function signUp({ nome, email, senha, telefone }) {
-
-  const user = await userRepositories.findUserByEmail(email)
-  if (user) throw new Error("User already exists");
-
-  const hashPassword = bcrypt.hashSync(senha, 10)
-
-  await userRepositories.createUser({ nome, email, senha: hashPassword, telefone })
-
+interface SignUpData {
+    nome: string;
+    email: string;
+    senha: string;
+    telefone: number;
 }
 
+interface SignInData {
+    email: string;
+    senha: string;
+}
 
-async function signIn({ email, senha }) {
+async function signUp({ nome, email, senha, telefone }: SignUpData) {
+const user = await userRepositories.findUserByEmail(email);
+if (user) throw new Error('User already exists');
 
-  const user = await userRepositories.findUserByEmail(email)
-  if (!user) throw new Error("User does not exist");
+const hashPassword = await bcrypt.hash(senha, 10);
 
-  const validacaoSenha = bcrypt.compareSync(senha, user.senha)
-  if (!validacaoSenha) throw new Error("Email or password are incorrect");
+await userRepositories.createUser({ nome, email, senha: hashPassword, telefone });
+}
 
-  const token = uuid()
+async function signIn({ email, senha }: SignInData) {
+const user = await userRepositories.findUserByEmail(email);
+if (!user) throw new Error('User does not exist');
 
-  await userRepositories.createSession({ user: user.id, token })
+const validacaoSenha = await bcrypt.compare(senha, user.senha);
+if (!validacaoSenha) throw new Error('Email or password are incorrect');
 
-  return token
+const token = uuid();
+
+return await userRepositories.createSession({ id_usuario: user.id, token });
+
 
 }
 
 const authServices = {
-  signIn,
-  signUp
-}
+signIn,
+signUp,
+};
 
-export default authServices
+export default authServices;
 
 
 
