@@ -16,7 +16,17 @@ async function signUp({ nome, email, senha, telefone }) {
 
 async function signIn({ email, senha }) {
 
+  const user = await userRepositories.findUserByEmail(email)
+  if (!user) throw new Error("User does not exist");
 
+  const validacaoSenha = bcrypt.compareSync(senha, user.senha)
+  if (!validacaoSenha) throw new Error("Email or password are incorrect");
+
+  const token = uuid()
+
+  await userRepositories.createSession({ user: user.id, token })
+
+  return token
 
 }
 
