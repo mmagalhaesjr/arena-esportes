@@ -32,7 +32,9 @@ if (!validacaoSenha) throw new Error('Email or password are incorrect');
 
 const token = uuid();
 
-return await userRepositories.createSession({ id_usuario: user.id, token });
+
+const result = await userRepositories.createSession({ id_usuario: user.id, token });
+return result.token
 
 
 }
