@@ -10,34 +10,27 @@ import { UserContext } from '../../contexts/UserContext'
 
 
 
-function LoginUsuario() {
+function TelaLogin() {
   const [email, setEmail] = useState('')
   const [senha, setSenha] = useState('')
-  
-  const {token , setToken} = useContext(UserContext)
-
-
+  const { token, setToken } = useContext(UserContext)
   const navigate = useNavigate()
 
   function logar(e) {
     e.preventDefault();
-
 
     const body = {
       email: email,
       senha: senha
     };
 
-
     const url = `${import.meta.env.VITE_API_BASE_URL}/sign-in`;
     const promise = axios.post(url, body);
 
     promise.then((res) => {
       navigate('/');
-      
       setToken(res.data.token)
-      localStorage.setItem("token",token)
-
+      localStorage.setItem("token", token)
     });
 
     promise.catch(err => {
@@ -50,22 +43,17 @@ function LoginUsuario() {
       <Corpo />
       <StyledLogin>
         <form onSubmit={logar}>
-          <br />
           <div className="inputBox">
             <input type="text" name="email" id="email" className="inputUser" required
               value={email} onChange={e => setEmail(e.target.value)} />
             <label htmlFor="email" className="labelInput">Email</label>
           </div>
 
-          <br /><br />
-
           <div className="inputBox">
             <input type="tel" name="senha" id="senha" className="inputUser" required
               value={senha} onChange={e => setSenha(e.target.value)} />
             <label htmlFor="senha" className="labelInput">Senha</label>
           </div>
-
-          <br /><br />
 
           <button type="submit" name="submit" id="submit">Entrar</button>
 
@@ -79,4 +67,4 @@ function LoginUsuario() {
   );
 }
 
-export default LoginUsuario;
+export default TelaLogin;

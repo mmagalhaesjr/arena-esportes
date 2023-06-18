@@ -7,16 +7,13 @@ top: 50%;
 left: 50%;
 transform: translate(-50%,-50%);
 
-
-
-.logo{
-    height:700px;
-    width: 700px;
+img{
+    width: 100%;
 }
 
 button{    
     background-color: #2A2A2A;
-    width:30%;
+    width:35%;
     border: none;
     padding: 15px;
     color: white;

@@ -12,7 +12,6 @@ export const StyledLogin = styled.div`
             border-radius: 15px;
             width: 80vh;
             height: 40%;
-
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -20,13 +19,16 @@ export const StyledLogin = styled.div`
 
         form{
             width:100%;
-                
+            height: 80%;    
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-
             }
+
+        input{
+            margin-bottom: 30px;
+        }
         .inputBox{
             position: relative;
             width: 80%;

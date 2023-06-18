@@ -11,22 +11,21 @@ export const StyledLogin = styled.div`
             padding: 15px;
             border-radius: 15px;
             width: 40%;
-            height: 40%;
-
+            height: 50%;
             display: flex;
             
-           
-           
         
             form{
-                width:100%;
-                
+                width:100%;   
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
 
             }
+            input{
+            margin-bottom: 30px;
+        }
         .inputBox{
             position: relative;
             width: 80%;

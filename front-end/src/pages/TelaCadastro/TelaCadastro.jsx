@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
-function CadastroUsuario() {
+function TelaCadastro(){
   const [nome, setNome] = useState('')
   const [email, setEmail] = useState('')
   const [telefone, setTelefone] = useState()
@@ -78,4 +78,4 @@ function CadastroUsuario() {
   );
 }
 
-export default CadastroUsuario;
+export default TelaCadastro;

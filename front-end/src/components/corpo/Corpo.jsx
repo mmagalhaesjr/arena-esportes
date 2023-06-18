@@ -8,16 +8,15 @@ export default function Corpo() {
     return (
 
         <StyledCorpo>
-            <div>
+              <img src={campo} alt='logo' />
+              <div>
                 <Link to="/">PÁGINA INICIAL</Link>
                 <Link to="/quadras">QUADRAS</Link>
-                <Link>CHURRASQUEIRA</Link>
                 <Link to="/reservas">MINHAS RESERVAS</Link>
-                <Link>VIDEOS</Link>
                 <Link to="/login">LOGIN</Link>
                 <Link to="/cadastro">CADASTRO</Link>
             </div>
-            <img src={campo} alt='logo' />
+          
         </StyledCorpo>
     )
 }

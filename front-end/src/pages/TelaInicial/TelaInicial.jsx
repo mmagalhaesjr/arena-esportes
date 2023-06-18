@@ -9,19 +9,10 @@ export default function TelaInicial() {
 
         <>
             <Corpo />
-
             <StyledLogo>
                 <img className="logo" src={logo} alt='logo' />
                 <button>RESERVAR QUADRA</button>
             </StyledLogo>
         </>
-
-
-
-
-
-
-
-
     )
 }
