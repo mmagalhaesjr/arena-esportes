@@ -30,11 +30,20 @@ async function createSession({ id_usuario, token }: SessionData) {
   })
 }
 
+async function findSessionByToken (token){
+return await prisma.sessao.findUnique({
+  where: {
+    token: token,
+  },
+})
+}
+
 
 const userRepositories = {
   findUserByEmail,
   createUser,
   createSession,
+  findSessionByToken
 };
 
 export default userRepositories;

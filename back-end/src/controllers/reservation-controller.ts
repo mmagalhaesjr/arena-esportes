@@ -2,7 +2,8 @@ import { Request, Response } from 'express';
 import reservationServices from '../services/reservation-services.js'
 
 async function getReservationsByUserId(req: Request, res: Response){
-    const userId;
+  const userId = res.locals.userId
+
   try {
     const reservations = await reservationServices.getReservationsByUserId(userId);
     res.send(reservations);

@@ -1,4 +1,4 @@
-import reservationRepositories from '../repositories/reservation-repositories';
+import reservationRepositories from '../repositories/reservation-repositories.js';
 
 async function getReservationsByUserId(userId: number) {
     const reservations = await reservationRepositories.getReservationsByUserId(userId);

@@ -37,7 +37,6 @@ model Reserva {
   id         Int       @id @default(autoincrement())
   id_usuario Int
   id_agenda  Int
-  valor      Int
   pago       Boolean?  @default(false)
   created_at DateTime? @default(now()) @db.Timestamp(6)
   agenda     Agenda    @relation(fields: [id_agenda], references: [id], onDelete: NoAction, onUpdate: NoAction)
