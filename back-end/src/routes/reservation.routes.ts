@@ -6,8 +6,8 @@ const reservationRoutes = Router();
 
 reservationRoutes.all('/*', validateToken)
 reservationRoutes.get('/reservation',reservationController.getReservationsByUserId)
-reservationRoutes.post('/reservation')
-reservationRoutes.delete('/reservation')
+reservationRoutes.post('/reservation', reservationController.createReservation)
+reservationRoutes.delete('/reservation', reservationController.deleteReservation)
 reservationRoutes.patch('/reservation')
 
 
