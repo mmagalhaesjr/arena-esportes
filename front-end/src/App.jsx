@@ -23,7 +23,7 @@ export default function App() {
             <Route path="/login" element={<TelaLogin />} />
             <Route path="/quadras" element={<TelaQuadras />} />
             <Route path="/reservas" element={<TelaReservas />} />
-            <Route path="/reservar" element={<TelaReservar />} />
+            <Route path="/reservar/:id" element={<TelaReservar />} />
           </Routes>
         </div>
       </UserProvider>

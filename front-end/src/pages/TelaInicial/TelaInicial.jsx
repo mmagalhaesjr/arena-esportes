@@ -21,7 +21,7 @@ export default function TelaInicial() {
 
             <StyledInicial onSubmit={quadras}>
                 <img className="logo" src={logo} alt='logo' />
-                <button type="submit" >RESERVAR</button>
+                <button type="submit">RESERVAR</button>
             </StyledInicial>
         </>
     )

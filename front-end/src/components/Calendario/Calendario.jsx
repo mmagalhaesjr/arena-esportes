@@ -1,21 +1,16 @@
 import dayjs from "dayjs";
-import { Container, StyledCalendario } from "./styled";
+import { StyledCalendario } from "./styled";
 
-export default function Calendario() {
 
-    function selecionarDia(date) {
-        const timestamp = dayjs(date).valueOf()
+export default function Calendario({listarHorarios}) {
 
-    }
     return (
-       
-            <StyledCalendario
-                locale="pt-BR"
-                formatDay={(_, date) => dayjs(date).format("DD")}
-                onClickDay={((date) => selecionarDia(date))} />
 
-
-
-
+        <StyledCalendario
+            locale="pt-BR"
+            formatDay={(_, date) => dayjs(date).format("DD")}
+            onClickDay={((date) => listarHorarios(dayjs(date).format('YYYY-MM-DD')))} 
+            minDate={new Date()}
+            />
     )
 }

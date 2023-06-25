@@ -1,16 +1,25 @@
-import horarios from "../../constants/horarios";
 import { StyledHora, StyledHorarios } from "./styled";
 
-export default function Horarios() {
+export default function Horarios({ agenda, setHorarioSelecionado, horarioSelecionado }) {
+
+
     return (
         <StyledHorarios>
-        
-            {horarios.map(horarios => (
+            {agenda.length === 0
+                ?
+                <h2>Nenhum horário disponível para a data selecionada!</h2>
+                :
 
-                <StyledHora key={horarios.id}>
-                    {horarios.hora}
-                </StyledHora>
-            ))}
+                agenda.map(a => (
+
+                    <StyledHora key={a.id} disabled={!a.disponivel} disponivel={a.disponivel} id={a.id} horarioSelecionado={horarioSelecionado} onClick={() => {setHorarioSelecionado(a.id)}}>
+                        {new Date(a.data).getUTCHours().toString().padStart(2, '0') + ':' +
+                            new Date(a.data).getUTCMinutes().toString().padStart(2, '0')}
+                    </StyledHora>
+                ))
+
+            }
+
         </StyledHorarios>
     )
 }
