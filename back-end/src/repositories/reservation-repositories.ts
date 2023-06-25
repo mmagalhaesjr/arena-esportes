@@ -10,6 +10,14 @@ async function getReservationsByUserId(userId: number): Promise<Reserva[]> {
     });
   }
 
+async function getReservationById(id: number): Promise<Reserva> {
+    return await prisma.reserva.findFirst({
+        where:{
+            id: id
+        }
+    });
+  }
+
   async function createReservation(userId:number,scheduleId: number ) {
     return await prisma.reserva.create({
       data: {
@@ -21,9 +29,10 @@ async function getReservationsByUserId(userId: number): Promise<Reserva[]> {
   
   }
 
-  async function deleteReservation() {
+  async function deleteReservation(reservationId) {
     return await prisma.reserva.delete({
       where:{
+        id:reservationId
 
       }
       })
@@ -36,7 +45,8 @@ async function getReservationsByUserId(userId: number): Promise<Reserva[]> {
   const reservationRepositories ={
     getReservationsByUserId,
     createReservation,
-    deleteReservation
+    deleteReservation,
+    getReservationById
   }
   
   export default reservationRepositories

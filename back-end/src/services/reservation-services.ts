@@ -1,5 +1,6 @@
 import { cannotCompleteReservationError } from '../errors/cannot-complete-reservation-error.js';
 import { cannotListReservationsError } from '../errors/cannot-list-reservations-error.js';
+import { forBiddenError } from '../errors/forbidden-error.js';
 import { notFoundError } from '../errors/not-found-error.js';
 import reservationRepositories from '../repositories/reservation-repositories.js';
 import scheduleRepositories from '../repositories/schedule-repositories.js';
@@ -20,11 +21,13 @@ async function createReservation(userId: number, scheduleId: number) {
     return reservation
 }
 
-function deleteReservation(userId: number, reservationId: number) {
-    // verificar se a reserva existetradutor
+async function deleteReservation(userId: number, reservationId: number) {
+    const reservation = await reservationRepositories.getReservationById(reservationId)
 
-    // verificar se a reserva é do usuario que esta fazendo a requisição
+    if (!reservation) throw notFoundError()
+    if (reservation.id_usuario !== userId) throw forBiddenError()
 
+    await reservationRepositories.deleteReservation(reservationId)
 }
 
 
