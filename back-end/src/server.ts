@@ -1,5 +1,5 @@
 import app from "./app.js";
 import "dotenv/config"
 
-const PORTA = process.env.PORTA || 5008;
-app.listen(PORTA, () => console.log(`***Server running in port: ${PORTA}***`));
+const PORT = process.env.PORT || 5008;
+app.listen(PORT, () => console.log(`***Server running in port: ${PORT}***`));
