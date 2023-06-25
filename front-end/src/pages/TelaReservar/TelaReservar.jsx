@@ -1,13 +1,16 @@
 
 import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../contexts/UserContext';
+
 import Calendario from '../../components/Calendario/Calendario';
 import Corpo from '../../components/Corpo/Corpo'
 import Horarios from '../../components/Horarios/Horarios';
+
+import { useNavigate, useParams } from 'react-router-dom';
 import { StyledReservar, StyledContainer, StyledButton } from './styled';
+
 import 'react-calendar/dist/Calendar.css'
 import axios from 'axios';
-import { useNavigate, useParams } from 'react-router-dom';
 import dayjs from 'dayjs';
 
 
@@ -50,6 +53,7 @@ export default function TelaReservas() {
 
         promise.then(() => {
             alert("Reserva realizada com sucesso")
+            navigate("/reservas")
         });
 
         promise.catch(err => {

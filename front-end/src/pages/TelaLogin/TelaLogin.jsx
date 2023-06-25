@@ -32,7 +32,8 @@ function TelaLogin() {
     promise.then((res) => {
       navigate('/');
       setToken(res.data.token)
-      localStorage.setItem("token", token)
+      localStorage.setItem('token', res.data.token)
+
     });
 
     promise.catch(err => {
@@ -52,7 +53,7 @@ function TelaLogin() {
           </div>
 
           <div className="inputBox">
-            <input type="tel" name="senha" id="senha" className="inputUser" required
+            <input type="password" name="senha" id="senha" className="inputUser" required
               value={senha} onChange={e => setSenha(e.target.value)} />
             <label htmlFor="senha" className="labelInput">Senha</label>
           </div>

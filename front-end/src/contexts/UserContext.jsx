@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 export const UserContext = createContext();
 
 export default function UserProvider({ children }) {
-    const localStorageToken = localStorage.getItem('user');
+    const localStorageToken = localStorage.getItem('token');
     const [token, setToken] = useState(localStorageToken !== null ? localStorageToken : "");
 
 
