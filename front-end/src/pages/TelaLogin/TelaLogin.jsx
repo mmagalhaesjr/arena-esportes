@@ -1,11 +1,13 @@
-import Corpo from '../../components/corpo/Corpo';
+import Corpo from '../../components/Corpo/Corpo';
+
 import { StyledLogin } from "./styled";
-import { useState } from "react";
-import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
+import { useState } from "react";
 import { useContext } from 'react';
 import { UserContext } from '../../contexts/UserContext'
+
+import axios from "axios";
 
 
 

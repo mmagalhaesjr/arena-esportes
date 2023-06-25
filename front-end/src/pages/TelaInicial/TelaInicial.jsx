@@ -1,18 +1,28 @@
-import Corpo from '../../components/corpo/Corpo'
-import { StyledLogo } from "./styled"
+import Corpo from '../../components/Corpo/Corpo'
+import { StyledInicial } from "./styled"
 import logo from '../../assets/logo.png';
+import { useNavigate } from 'react-router-dom';
 
 
 
 export default function TelaInicial() {
+    const navigar = useNavigate();
+
+    function quadras(e) {
+        e.preventDefault()
+        navigar("/quadras")
+
+    }
+
     return (
 
         <>
             <Corpo />
-            <StyledLogo>
+
+            <StyledInicial onSubmit={quadras}>
                 <img className="logo" src={logo} alt='logo' />
-                <button>RESERVAR QUADRA</button>
-            </StyledLogo>
+                <button type="submit" >RESERVAR</button>
+            </StyledInicial>
         </>
     )
 }

@@ -1,5 +1,5 @@
 import Reserva from '../../components/Reserva/Reserva';
-import Corpo from '../../components/corpo/Corpo'
+import Corpo from '../../components/Corpo/Corpo'
 import { StyledReservas, StyledContainer } from './styled';
 
 
@@ -16,7 +16,14 @@ export default function TelaReservas() {
                    <Reserva/>
                    <Reserva/>
                    <Reserva/>
-
+                   <Reserva/>
+                   <Reserva/>
+                   <Reserva/>
+                   <Reserva/>
+                   <Reserva/>
+                   <Reserva/>
+                   <Reserva/>
+                   <Reserva/>
 
                 </StyledReservas>
             </StyledContainer>

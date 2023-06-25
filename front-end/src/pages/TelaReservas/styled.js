@@ -18,6 +18,7 @@ h1{
 `
 
 export const StyledReservas = styled.div`
+
 height: 80%;
 width: 80%;
 display: flex;
@@ -26,6 +27,27 @@ align-items: center;
 justify-content:center;
 overflow: scroll;
 background-color: rgba(0, 0, 0, 0.6);
+
+&::-webkit-scrollbar {
+    width: 8px; /* Largura da barra de rolagem */
+    opacity: 0; /* Inicialmente, torna a barra de rolagem invisível */
+    transition: opacity 0.3s; /* Adiciona uma transição suave */
+    opacity: 100;
+  }
+
+  /* Estiliza o trilho da barra de rolagem */
+
+
+  /* Estiliza o polegar da barra de rolagem */
+  &::-webkit-scrollbar-thumb {
+    background-color: #888; /* Cor do polegar */
+  }
+
+  /* Estiliza o polegar da barra de rolagem quando o mouse está sobre ele */
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Cor do polegar em hover */
+  }
+
 
 `
 

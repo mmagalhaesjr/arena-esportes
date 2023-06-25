@@ -1,4 +1,4 @@
-import Corpo from '../../components/corpo/Corpo'
+import Corpo from '../../components/Corpo/Corpo'
 import { StyledLogin } from "./styled"
 import { useState } from "react";
 import axios from "axios"

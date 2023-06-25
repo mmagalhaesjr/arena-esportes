@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledLogo = styled.section`
+export const StyledInicial = styled.form`
 
 position: absolute;
 top: 50%;
@@ -12,9 +12,11 @@ img{
 }
 
 button{    
+    border: 1px solid #000000;
     background-color: #2A2A2A;
-    width:35%;
-    border: none;
+    
+
+    width:40%;
     padding: 15px;
     color: white;
     font-size: 15px;
@@ -29,6 +31,7 @@ button{
 }
 button:hover{
     border: 3px solid #FFF509;
+    transition:100ms;
 }
 `
 
