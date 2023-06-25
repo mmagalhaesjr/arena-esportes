@@ -10,9 +10,33 @@ async function getReservationsByUserId(userId: number): Promise<Reserva[]> {
     });
   }
 
+  async function createReservation(userId:number,scheduleId: number ) {
+    return await prisma.reserva.create({
+      data: {
+        id_usuario:userId,
+        id_agenda:scheduleId
+  
+      }
+    })
+  
+  }
+
+  async function deleteReservation() {
+    return await prisma.reserva.delete({
+      where:{
+
+      }
+      })
+    }
+  
+
+
+
 
   const reservationRepositories ={
-    getReservationsByUserId
+    getReservationsByUserId,
+    createReservation,
+    deleteReservation
   }
   
   export default reservationRepositories

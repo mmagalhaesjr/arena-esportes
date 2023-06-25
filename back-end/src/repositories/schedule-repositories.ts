@@ -1,5 +1,7 @@
 import prisma from "../config/database.js"
+import { create } from 'ts-node';
 import { Agenda } from '@prisma/client'
+import { boolean, number } from "joi";
 
 interface GetScheduleParams {
   fieldDate: string;
@@ -24,7 +26,25 @@ async function getSchedule({ fieldId, fieldDate }: GetScheduleParams) {
   })
 }
 
+async function getScheduleById(scheduleId: number) {
+  return await prisma.agenda.findFirst({
+    where: {
+      id: scheduleId
+    }
+  })
+
+}
+
+async function updateSchedule(id:number, disponivel: boolean ){
+  return await prisma.agenda.update({
+   where:{id:id},
+   data:{disponivel:disponivel}
+  })
+}
+
 const scheduleRepositories = {
   getSchedule,
+  getScheduleById,
+  updateSchedule,
 }
 export default scheduleRepositories

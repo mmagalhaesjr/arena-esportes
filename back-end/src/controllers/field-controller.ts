@@ -1,13 +1,12 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import fieldServices from '../services/field-services.js'
 
-async function getAllFields(req: Request, res: Response){
+async function getAllFields(req: Request, res: Response, next: NextFunction){
   try {
-    const field = await fieldServices.getSoccerField();
-    res.send(field);
+    const fields = await fieldServices.getSoccerField();
+    res.send(fields);
   } catch (error) {
-    console.log(error);
-    return res.status(500).send(error.message);
+    next(error)
   }
 }
 
