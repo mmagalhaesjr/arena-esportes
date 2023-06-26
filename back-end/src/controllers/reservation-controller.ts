@@ -27,7 +27,7 @@ async function createReservation(req: Request, res: Response, next: NextFunction
 
 async function deleteReservation(req: Request, res: Response, next: NextFunction){
   const userId = res.locals.userId
-  const reservationId = req.body.id
+  const reservationId = Number(req.params.id)
 
   try {
     await reservationServices.deleteReservation(userId, reservationId);

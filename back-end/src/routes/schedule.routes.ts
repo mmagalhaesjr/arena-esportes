@@ -6,7 +6,7 @@ import { dateSchema } from "../schemas/date-schema.js";
 
 const scheduleRoutes = Router();
 
-scheduleRoutes.get('/schedule/:id', validateSchema(dateSchema), scheduleController.getSchedule)
+scheduleRoutes.get('/schedule/:id/:date', scheduleController.getSchedule)
 
 
 

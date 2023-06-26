@@ -6,6 +6,14 @@ async function getReservationsByUserId(userId: number): Promise<Reserva[]> {
     return await prisma.reserva.findMany({
         where:{
             id_usuario: userId
+        },
+        include:{
+          usuario:{
+            select:{
+              nome:true,
+            }
+          },
+          agenda:true
         }
     });
   }

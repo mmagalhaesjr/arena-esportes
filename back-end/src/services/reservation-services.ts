@@ -28,6 +28,7 @@ async function deleteReservation(userId: number, reservationId: number) {
     if (reservation.id_usuario !== userId) throw forBiddenError()
 
     await reservationRepositories.deleteReservation(reservationId)
+    await scheduleRepositories.updateSchedule(reservation.id_agenda, true)
 }
 
 
